@@ -6,7 +6,7 @@ import pickle
 import dgl
 import torch
 
-def load_DOUBAN_929_data(prefix='/share/zhangyudong1-nfs/HGNN-IMA/douban',train_val_test_dir = '/'):
+def load_DOUBAN_929_data(prefix='./douban',train_val_test_dir = '/'):
 
     features_0 = np.load(prefix + '/features_douban_928_1_movie.npz.npy')
     features_1 =np.load(prefix + '/features_douban_928_1_directors.npz.npy')
@@ -49,7 +49,7 @@ def load_DOUBAN_929_data(prefix='/share/zhangyudong1-nfs/HGNN-IMA/douban',train_
     train = train_val_test_idx['train_idx']
     return [features_0, features_1, features_2],[features_0_img, features_1_img, features_2_img],node_test,labels,train_val_test_idx,rdf,g
 
-def load_AMAZON_data(prefix='/share/zhangyudong1-nfs/HGNN-IMA/amazon',train_val_test_dir = '/'):
+def load_AMAZON_data(prefix='./amazon',train_val_test_dir = '/'):
 
     features_0 = np.load(prefix + '/feature_item_amazon.npz')['feature']
     features_1 =np.load(prefix + '/feature_review_amazon.npz')['feature']
@@ -90,7 +90,7 @@ def load_AMAZON_data(prefix='/share/zhangyudong1-nfs/HGNN-IMA/amazon',train_val_
 
     return [features_0, features_1],[features_0_img, features_1_img],node_test,labels,train_val_test_idx,rdf,g
 
-def load_IMDB_data(prefix='/share/zhangyudong1-nfs/HGNN-IMA/imdb',train_val_test_dir = '/'):
+def load_IMDB_data(prefix='./imdb',train_val_test_dir = '/'):
 
     features_0 = scipy.sparse.load_npz(prefix + '/features_0.npz').todense()
     features_1 = scipy.sparse.load_npz(prefix + '/features_1.npz').todense()
